@@ -6,8 +6,8 @@
 <title>صالح الجندي — Odoo Developer</title>
 <meta name="description" content="صالح الجندي، Odoo Developer: ببني Modules بـ Python و XML وبشرح Odoo 20 بالمصري على يوتيوب.">
 <meta property="og:title" content="صالح الجندي — Odoo Developer">
-<meta property="og:description" content="ببني Modules بـ Python و XML وبشرح Odoo 20 بالمصري على يوتيوب.">
-<meta property="og:image" content="avatar.jpg">
+<meta property="og:description" content="ببني Modules بـ Python و XML، وبشرح Odoo 20 على يوتيوب.">
+<meta property="og:image" content="https://salehelgendy1.github.io/avatar.jpg">
 <meta name="theme-color" content="#0d0a12">
 <link rel="icon" href="avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,6 +75,16 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 .tl h3{font-size:19px;font-weight:700;margin:2px 0 4px}
 .tl p{color:var(--muted);font-size:15.5px}
 .tl .it.next h3,.tl .it.next p{color:var(--dim)}
+.tl .it.team::before{border-color:var(--plum);background:var(--plum);box-shadow:0 0 14px var(--plum)}
+.tl .it.team{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-right:-6px}
+.tl .it.team::before{right:-22px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 12px}
+.stats div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
+.stats b{display:block;font-family:var(--en);font-weight:800;font-size:20px;color:var(--plum);direction:ltr}
+.stats small{display:block;color:var(--muted);font-size:12px;line-height:1.4}
+.teamlink{color:var(--teal);font-weight:600;font-size:15px;border-bottom:1px solid transparent}
+.teamlink:hover{border-color:var(--teal)}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
 
 /* module builder */
 #build .wrap{max-width:1160px}
@@ -204,6 +214,7 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 .lk div b{display:block;font-size:16px}
 .lk div small{color:var(--muted);font-family:var(--mono);font-size:12.5px;direction:ltr;display:inline-block}
 .lk .ar{margin-right:auto;color:var(--dim)}
+.lk div small.wa{font-family:var(--ar);direction:rtl;font-size:13.5px}
 footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px;padding:40px 0 60px;direction:ltr}
 
 @media (max-width:640px){
@@ -230,7 +241,7 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
   <div class="photo reveal"><img src="avatar.jpg" alt="Saleh Elgendy"></div>
   <h1 class="name reveal" dir="ltr">Saleh Elgendy</h1>
   <div class="role reveal">ODOO DEVELOPER</div>
-  <p class="tag reveal">ببني Modules بـ Python و XML، وبشرح Odoo 20 بالمصري على يوتيوب. انزل وشوف أنا وصلت لفين.</p>
+  <p class="tag reveal">ببني Modules بـ Python و XML، وبشرح Odoo 20 على يوتيوب. انزل وشوف أنا وصلت لفين.</p>
   <a class="btn reveal" href="#story">ابدأ من الأول <span class="down">↓</span></a>
 </header>
 
@@ -239,14 +250,15 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
   <div class="wrap">
     <div class="chap reveal">chapter 01</div>
     <h2 class="reveal">من فين بدأت</h2>
-    <p class="lead reveal">من الكمبيوتر ساينس، للمونتاج، لـ Odoo.</p>
+    <p class="lead reveal">من الكمبيوتر ساينس، للمونتاج وإدارة فريق، لـ Odoo.</p>
     <div class="tl">
       <div class="it reveal"><span class="yr">2018 — 2022</span><h3>بكالوريوس Computer Science</h3><p>كلية الحاسبات ونظم المعلومات، جامعة 6 أكتوبر.</p></div>
-      <div class="it reveal"><span class="yr">2019 — now</span><h3>مونتاج الفيديو</h3><p>بدأت مونتير فيديو إسلامي من 2019. من هنا اتعلمت إزاي أشرح فكرة واحدة في فيديو قصير، وده اللي بستخدمه دلوقتي في شرح Odoo.</p></div>
+      <div class="it reveal"><span class="yr">2019 — 2022</span><h3>مونتير فيديو</h3><p>مونتاج المحتوى العلمي الشرعي: محاضرات ودروس طويلة بتتحول لمقاطع قصيرة واضحة. من هنا اتعلمت أشرح فكرة واحدة في دقيقة.</p></div>
+      <div class="it team reveal"><span class="yr">2022 — now</span><h3>مدير فريق الدال للإنتاج الرقمي</h3><p>فريق إنتاج رقمي متخصص في المحتوى العلمي الشرعي: بندير قنوات أصحاب الفضيلة والمؤسسات العلمية، ونحوّل الدروس الطويلة لمقاطع ومواد منظمة، ونحفظ تراث العلماء في أرشيف.</p><div class="stats"><div><b>+230M</b><small>مشاهدة على القنوات اللي أدرناها</small></div><div><b>+15K</b><small>مقطع منتَج</small></div><div><b>11</b><small>عضو في الفريق</small></div><div><b>14</b><small>مشروع وشراكة</small></div></div><a class="teamlink" href="https://salehelgendy1.github.io/aldall/" target="_blank" rel="noopener">شوف موقع الفريق وأعمالنا ←</a></div>
       <div class="it od reveal"><span class="yr">Nov 2024 — Jan 2025</span><h3>Odoo من ناحية البيزنس</h3><p>كورس Odoo Functional Consultant في Kamah Tech، 3 مستويات: المبيعات والمخازن والتصنيع، وإزاي الشركة بتشتغل جوه Odoo.</p></div>
-      <div class="it od reveal"><span class="yr">2025</span><h3>Odoo Development</h3><p>بعد ما فهمت البيزنس، دخلت في الكود: Python و XML و ORM و views و security.</p></div>
-      <div class="it od reveal"><span class="yr">Jan 2026</span><h3>قناة يوتيوب بتشرح Odoo بالمصري</h3><p>سلسلة أساسيات Odoo 20، وفيديو عن اللي اتغير للمطورين في الإصدار ده من المصادر الرسمية، بدوبلاج إنجليزي.</p></div>
-      <div class="it next reveal"><span class="yr">next</span><h3>أول Module للبورتفوليو على GitHub</h3><p>بشتغل عليه دلوقتي.</p></div>
+      <div class="it od reveal"><span class="yr">Mar 2025 — now</span><h3>Odoo Development</h3><p>بعد ما فهمت البيزنس، دخلت في الكود: Python و XML و ORM و views و security.</p></div>
+      <div class="it od reveal"><span class="yr">Jan 2026</span><h3>قناة يوتيوب بتشرح Odoo</h3><p>سلسلة أساسيات Odoo 20، وفيديو عن اللي اتغير للمطورين في الإصدار ده من المصادر الرسمية، بدوبلاج إنجليزي.</p></div>
+      <div class="it next reveal"><span class="yr">next</span><h3>كورس Odoo Development مع منصة Vissionix</h3><p>محاضر لكورس Odoo Development للمبتدئين على Odoo 20 Community: من أول Module لحد مشروع كامل.</p></div>
     </div>
   </div>
 </section>
@@ -281,8 +293,8 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 <section id="videos" data-ch>
   <div class="wrap">
     <div class="chap reveal">chapter 03 · youtube</div>
-    <h2 class="reveal">بشرح اللي بتعلمه</h2>
-    <p class="lead reveal">كل فيديو فكرة واحدة، بكود حقيقي، والمصطلحات بالإنجليزي زي ما هتقابلها في الشغل.</p>
+    <h2 class="reveal">Odoo 20 من الكود نفسه</h2>
+    <p class="lead reveal">كل فيديو مبني على كود Odoo 20 الرسمي والـ release notes. فكرة واحدة، بكود حقيقي، والمصطلحات بالإنجليزي زي ما هتقابلها في الشغل.</p>
     <div class="vids">
       <a class="vid reveal" href="https://www.youtube.com/watch?v=ip9fWY6MhIY" target="_blank" rel="noopener">
         <div class="th" style="background-image:url('https://i.ytimg.com/vi/ip9fWY6MhIY/hqdefault.jpg')"></div>
@@ -329,6 +341,10 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
       <a class="lk" href="https://www.linkedin.com/in/salehelgendy" target="_blank" rel="noopener">
         <span class="ic" style="background:#0a66c2"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg></span>
         <div><b>LinkedIn</b><small>linkedin.com/in/salehelgendy</small></div><span class="ar">←</span>
+      </a>
+      <a class="lk" href="https://wa.me/201002623291" target="_blank" rel="noopener">
+        <span class="ic" style="background:#25d366"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></span>
+        <div><b>WhatsApp</b><small class="wa">ابعتلي رسالة على طول</small></div><span class="ar">←</span>
       </a>
       <a class="lk" href="https://www.youtube.com/@Saleh_Elgendy" target="_blank" rel="noopener">
         <span class="ic" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="#fff"><path d="M9.5 7.5v9l7.5-4.5z"/></svg></span>
@@ -675,7 +691,7 @@ const tb=document.getElementById('toolbtns'),box=document.getElementById('toolbo
 Object.keys(T).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));box.innerHTML='<b>'+k+'</b> — '+T[k];box.classList.add('on')};tb.appendChild(b)});
 
 /* end paths */
-const A={hire:'كلّمني على <a href="https://www.linkedin.com/in/salehelgendy" target="_blank" rel="noopener">LinkedIn</a>، ولو حابب تشوف مستوايا قبلها، الفيديوهات فوق فيها كود حقيقي.',
+const A={hire:'كلّمني على <a href="https://wa.me/201002623291" target="_blank" rel="noopener">WhatsApp</a> أو <a href="https://www.linkedin.com/in/salehelgendy" target="_blank" rel="noopener">LinkedIn</a>، ولو حابب تشوف مستوايا قبلها، الفيديوهات فوق فيها كود حقيقي.',
  learn:'ابدأ بـ <a href="https://www.youtube.com/@Saleh_Elgendy" target="_blank" rel="noopener">سلسلة أساسيات Odoo 20</a> على القناة، من أول Module لحد الـ Security.'};
 document.querySelectorAll('.path').forEach(p=>p.onclick=()=>{document.querySelectorAll('.path').forEach(x=>x.classList.toggle('on',x===p));document.getElementById('answer').innerHTML=A[p.dataset.p]});
 </script>
