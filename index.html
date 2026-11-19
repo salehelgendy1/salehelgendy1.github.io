@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>صالح الجندي — Odoo Developer</title>
-<meta name="description" content="صالح الجندي، Odoo Developer: ببني Modules بـ Python و XML وبشرح Odoo 20 بالمصري على يوتيوب.">
-<meta property="og:title" content="صالح الجندي — Odoo Developer">
-<meta property="og:description" content="ببني Modules بـ Python و XML، وبشرح Odoo 20 على يوتيوب.">
+<title>Saleh Elgendy — Odoo Developer</title>
+<meta name="description" content="Saleh Elgendy, Odoo Developer: I build Odoo modules with Python and XML, and explain Odoo 20 on YouTube.">
+<meta property="og:title" content="Saleh Elgendy — Odoo Developer">
+<meta property="og:description" content="I build Odoo modules with Python and XML, and explain Odoo 20 on YouTube.">
 <meta property="og:image" content="https://salehelgendy1.github.io/avatar.jpg">
 <meta name="theme-color" content="#0d0a12">
 <link rel="icon" href="avatar.jpg">
 <script>
-(function(){var t='dark',l='ar';try{t=localStorage.getItem('theme')||t;l=localStorage.getItem('lang')||l}catch(e){}
+(function(){var t='dark',l='en';try{t=localStorage.getItem('theme')||t;l=localStorage.getItem('lang')||l}catch(e){}
 var q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='ar')l=q;
 var d=document.documentElement;d.setAttribute('data-theme',t);d.lang=l;d.dir=l==='en'?'ltr':'rtl';})();
 </script>
@@ -901,7 +901,7 @@ document.querySelectorAll('#bar [data-lang]').forEach(b=>b.onclick=()=>setLang(b
 let lastY=scrollY,lockT=0;const bar=document.getElementById('bar');bar.addEventListener('click',()=>{lockT=Date.now();bar.classList.remove('hide')});
 addEventListener('scroll',()=>{const y=scrollY;if(Date.now()-lockT<1000){lastY=y;return}if(Math.abs(y-lastY)<8)return;bar.classList.toggle('hide',y>lastY&&y>120);lastY=y},{passive:true});
 document.getElementById('themeBtn').onclick=()=>setTheme(d.getAttribute('data-theme')==='light'?'dark':'light');
-setTheme(d.getAttribute('data-theme')||'dark');setLang(d.lang==='en'?'en':'ar');
+setTheme(d.getAttribute('data-theme')||'dark');setLang(d.lang==='ar'?'ar':'en');
 })();
 </script>
 </body>
