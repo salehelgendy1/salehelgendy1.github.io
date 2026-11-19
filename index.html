@@ -45,6 +45,7 @@ a{color:inherit;text-decoration:none}
 
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
 section{padding:110px 0}
+[dir=ltr] .cview{direction:ltr}
 .chap{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal);text-transform:lowercase;direction:ltr;text-align:center;margin-bottom:10px}
 h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:1.4}
 .lead{color:var(--muted);text-align:center;max-width:520px;margin:12px auto 44px}
@@ -90,6 +91,26 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 .teamlink{color:var(--teal);font-weight:600;font-size:15px;border-bottom:1px solid transparent}
 .teamlink:hover{border-color:var(--teal)}
 @media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+
+/* certificates */
+.certs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cert{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;text-align:start;color:var(--ink);font:inherit;padding:0;transition:.3s}
+.cert:hover{border-color:var(--teal);transform:translateY(-4px)}
+.cert img{width:100%;aspect-ratio:1.414;object-fit:cover;display:block;background:#fff;border-bottom:1px solid var(--line)}
+.ctx{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px}
+.ctx b{font-family:var(--en);font-size:17px;line-height:1.35}
+.cbadge{align-self:flex-start;font:700 11px var(--en);letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--card2);color:var(--muted);margin-bottom:4px}
+.cbadge.od{background:rgba(53,194,181,.15);color:var(--teal)}
+.cmeta{color:var(--muted);font-size:14px}
+.cdate{font-family:var(--mono);font-size:12.5px;color:var(--teal);direction:ltr;unicode-bidi:isolate;text-align:start}
+.cview{color:var(--teal);font-weight:600;font-size:14px;margin-top:6px}
+[lang=ar] .cdate[data-t]{font-family:var(--ar);direction:rtl;font-size:13.5px}
+#certDlg{border:0;padding:0;background:transparent;max-width:min(1000px,94vw);margin:auto;overflow:visible}
+#certDlg::backdrop{background:rgba(0,0,0,.8)}
+#certDlg img{display:block;width:100%;height:auto;max-height:86vh;object-fit:contain;border-radius:10px;background:#fff}
+#certDlg .x{position:absolute;top:-44px;inset-inline-end:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font-size:16px;cursor:pointer}
+@media (max-width:640px){.certs{grid-template-columns:1fr}}
 
 /* module builder */
 #build .wrap{max-width:1160px}
@@ -306,6 +327,38 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
     </div>
   </div>
 </section>
+
+<!-- certificates -->
+<section id="certs" data-ch>
+  <div class="wrap">
+    <div class="chap reveal">certificates</div>
+    <h2 class="reveal" data-t="hc">الشهادات</h2>
+    <p class="lead reveal" data-t="lc">دوس على أي شهادة عشان تشوفها كاملة.</p>
+    <div class="certs">
+      <button class="cert reveal" data-img="certs/kamahtech-odoo-functional.jpg" data-alt="Kamah Tech, Odoo Functional Consultant Training certificate">
+        <img src="certs/kamahtech-odoo-functional.jpg" alt="Kamah Tech, Odoo Functional Consultant Training certificate" loading="lazy">
+        <span class="ctx">
+          <span class="cbadge od">Odoo</span>
+          <b>Odoo Functional Consultant Training</b>
+          <span class="cmeta" data-t="c1m">Levels 1، 2، 3 · Kamah Tech، المقر الرئيسي</span>
+          <span class="cdate">22 Nov 2024 — 10 Jan 2025</span>
+          <span class="cview" data-t="cview">شوف الشهادة ←</span>
+        </span>
+      </button>
+      <button class="cert reveal" data-img="certs/huawei-hcia-5g.jpg" data-alt="Huawei HCIA-5G certificate">
+        <img src="certs/huawei-hcia-5g.jpg" alt="Huawei HCIA-5G certificate" loading="lazy">
+        <span class="ctx">
+          <span class="cbadge">Huawei</span>
+          <b>HCIA-5G</b>
+          <span class="cmeta" data-t="c2m">Huawei Certified ICT Associate</span>
+          <span class="cdate" data-t="c2d">صالحة لحد 3 يناير 2024</span>
+          <span class="cview" data-t="cview2">شوف الشهادة ←</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+<dialog id="certDlg" aria-label="certificate"><button class="x" aria-label="close">✕</button><img alt=""></dialog>
 
 <!-- 02 -->
 <section id="build" data-ch>
@@ -761,6 +814,14 @@ const A_EN={hire:'Message me on <a href="https://wa.me/201002623291" target="_bl
  learn:'Start with the <a href="https://www.youtube.com/playlist?list=PLDoKnepNcgiM" target="_blank" rel="noopener">Odoo 20 Basics series</a> on my channel, from your first module to security.'};
 document.querySelectorAll('.path').forEach(p=>p.onclick=()=>{document.querySelectorAll('.path').forEach(x=>x.classList.toggle('on',x===p));const an=document.getElementById('answer');an.dataset.p=p.dataset.p;an.innerHTML=(window.LANG==='en'?A_EN:A)[p.dataset.p]});
 
+/* certificate viewer */
+(function(){
+const dlg=document.getElementById('certDlg'),img=dlg.querySelector('img');
+document.querySelectorAll('.cert').forEach(c=>c.onclick=()=>{img.src=c.dataset.img;img.alt=c.dataset.alt;dlg.showModal()});
+dlg.querySelector('.x').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+})();
+
 /* language + theme switch */
 (function(){
 const EN={
@@ -785,7 +846,10 @@ const EN={
  h4:'My tools', l4:'Click any tool.', toolbox:'Pick a tool and I\'ll tell you what I use it for.',
  h5:'You reached the end. Your turn.', l5:'Pick what fits you.',
  p1b:'Looking for an Odoo Developer', p1s:'for your team', p2b:'Want to learn Odoo', p2s:'from scratch, in Arabic',
- wa:'Message me directly'
+ wa:'Message me directly',
+ hc:'Certificates', lc:'Click any certificate to see it in full.',
+ c1m:'Levels 1, 2, 3 · Kamah Tech, headquarters', c2m:'Huawei Certified ICT Associate', c2d:'Valid through 3 Jan 2024',
+ cview:'View certificate →', cview2:'View certificate →'
 };
 const AR={};document.querySelectorAll('[data-t]').forEach(e=>AR[e.dataset.t]=e.innerHTML);
 const TITLE={ar:'صالح الجندي — Odoo Developer',en:'Saleh Elgendy — Odoo Developer'};
