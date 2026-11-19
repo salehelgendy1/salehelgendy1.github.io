@@ -10,13 +10,18 @@
 <meta property="og:image" content="https://salehelgendy1.github.io/avatar.jpg">
 <meta name="theme-color" content="#0d0a12">
 <link rel="icon" href="avatar.jpg">
+<script>
+(function(){var t='dark',l='ar';try{t=localStorage.getItem('theme')||t;l=localStorage.getItem('lang')||l}catch(e){}
+var q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='ar')l=q;
+var d=document.documentElement;d.setAttribute('data-theme',t);d.lang=l;d.dir=l==='en'?'ltr':'rtl';})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0d0a12;--bg2:#15101c;--card:rgba(255,255,255,.04);--card2:rgba(255,255,255,.07);
   --ink:#f5eff4;--muted:#a99ca8;--dim:#6f6470;--line:rgba(255,255,255,.09);
-  --plum:#e6b9dc;--plum2:#5a2f55;--teal:#35c2b5;--red:#ff4d4d;
+  --plum:#e6b9dc;--plum2:#5a2f55;--g2:#0c4a4f;--teal:#35c2b5;--red:#ff4d4d;
   --ar:'IBM Plex Sans Arabic',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--en:'Inter',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -31,7 +36,7 @@ a{color:inherit;text-decoration:none}
 #bg .grid{position:absolute;inset:-48px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;opacity:.35;mask-image:radial-gradient(ellipse at 50% 40%,#000 15%,transparent 75%)}
 #bg .g1,#bg .g2{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(80px);opacity:.55;transition:transform 1.2s ease-out}
 #bg .g1{background:radial-gradient(circle,var(--plum2),transparent 65%);top:-35vmax;right:-25vmax}
-#bg .g2{background:radial-gradient(circle,#0c4a4f,transparent 65%);bottom:-40vmax;left:-25vmax}
+#bg .g2{background:radial-gradient(circle,var(--g2),transparent 65%);bottom:-40vmax;left:-25vmax}
 
 /* chapter dots */
 #dots{position:fixed;left:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:5}
@@ -65,10 +70,10 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 @keyframes bob{50%{transform:translateY(5px)}}
 
 /* timeline */
-.tl{position:relative;padding-right:28px}
-.tl::before{content:"";position:absolute;right:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--plum),var(--teal),transparent)}
+.tl{position:relative;padding-inline-start:28px}
+.tl::before{content:"";position:absolute;inset-inline-start:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--plum),var(--teal),transparent)}
 .tl .it{position:relative;margin-bottom:38px}
-.tl .it::before{content:"";position:absolute;right:-28px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--plum)}
+.tl .it::before{content:"";position:absolute;inset-inline-start:-28px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--plum)}
 .tl .it.od::before{border-color:var(--teal);background:var(--teal);box-shadow:0 0 14px var(--teal)}
 .tl .it.next::before{border-style:dashed;border-color:var(--dim)}
 .tl .yr{font-family:var(--mono);font-size:12.5px;color:var(--teal);direction:ltr;display:inline-block}
@@ -76,10 +81,10 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 .tl p{color:var(--muted);font-size:15.5px}
 .tl .it.next h3,.tl .it.next p{color:var(--dim)}
 .tl .it.team::before{border-color:var(--plum);background:var(--plum);box-shadow:0 0 14px var(--plum)}
-.tl .it.team{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-right:-6px}
-.tl .it.team::before{right:-22px}
+.tl .it.team{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-inline-start:-6px}
+.tl .it.team::before{inset-inline-start:-22px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 12px}
-.stats div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
 .stats b{display:block;font-family:var(--en);font-weight:800;font-size:20px;color:var(--plum);direction:ltr}
 .stats small{display:block;color:var(--muted);font-size:12px;line-height:1.4}
 .teamlink{color:var(--teal);font-weight:600;font-size:15px;border-bottom:1px solid transparent}
@@ -199,9 +204,9 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 
 /* end */
 .paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
-.path{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;cursor:pointer;text-align:right;color:var(--ink);font:inherit;transition:.25s}
+.path{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;cursor:pointer;text-align:start;color:var(--ink);font:inherit;transition:.25s}
 .path:hover,.path.on{border-color:var(--teal);background:var(--card2)}
-.path code{font-family:var(--mono);color:var(--teal);font-size:13px;display:block;direction:ltr;text-align:right}
+.path code{font-family:var(--mono);color:var(--teal);font-size:13px;display:block;direction:ltr;text-align:start}
 .path b{display:block;font-size:18px;margin-top:6px}
 .path small{color:var(--muted)}
 .answer{min-height:60px;text-align:center;color:var(--muted);margin-bottom:30px}
@@ -209,13 +214,46 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 .links{display:flex;flex-direction:column;gap:10px}
 .lk{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:.25s}
 .lk:hover{border-color:var(--teal);transform:translateX(-4px)}
+[dir=ltr] .lk:hover{transform:translateX(4px)}
+[dir=ltr] .lk .ar{transform:scaleX(-1)}
 .lk .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none}
 .lk .ic svg{width:22px;height:22px}
 .lk div b{display:block;font-size:16px}
 .lk div small{color:var(--muted);font-family:var(--mono);font-size:12.5px;direction:ltr;display:inline-block}
-.lk .ar{margin-right:auto;color:var(--dim)}
+.lk .ar{margin-inline-start:auto;color:var(--dim)}
 .lk div small.wa{font-family:var(--ar);direction:rtl;font-size:13.5px}
 footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px;padding:40px 0 60px;direction:ltr}
+
+
+/* language */
+[lang=en] body{font-family:var(--en)}
+[lang=en] .stepnav button,[lang=en] .roles{font-family:var(--en)}
+[lang=en] .lk div small.wa{font-family:var(--en);direction:ltr}
+[lang=en] .odoo .empty{direction:ltr;font-family:var(--en)}
+[lang=en] h2,[lang=en] .tl h3{letter-spacing:-.01em}
+
+/* light theme */
+[data-theme=light]{--bg:#f8f5f8;--bg2:#efe9ef;--card:rgba(40,20,40,.035);--card2:rgba(40,20,40,.065);
+  --ink:#1f1722;--muted:#62566a;--dim:#9a8f9d;--line:rgba(40,20,40,.11);
+  --plum:#9a4a89;--plum2:#f1d4ea;--g2:#c5ece7;--teal:#0f8077;--red:#e5383b}
+[data-theme=light] #bg .grid{opacity:.5}
+[data-theme=light] #bg .g1,[data-theme=light] #bg .g2{opacity:.8}
+[data-theme=light] .builder,[data-theme=light] .term{--ink:#f5eff4;--muted:#a99ca8;--dim:#6f6470;--line:rgba(255,255,255,.09);--card:rgba(255,255,255,.04);--plum:#e6b9dc;--teal:#35c2b5;color:var(--ink);background:#17111d}
+[data-theme=light] .tools button.on,[data-theme=light] #bar .seg button.on{color:#fff}
+
+/* toolbar */
+#bar{position:fixed;top:14px;inset-inline-end:14px;z-index:10;display:flex;gap:8px}
+#bar{transition:transform .3s ease,opacity .3s ease}#bar.hide{transform:translateY(-70px);opacity:0}
+#bar .seg{display:flex;background:var(--card2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:30px;padding:3px}
+#bar .seg button{border:0;background:none;color:var(--muted);font:700 13px var(--en);min-width:38px;height:30px;border-radius:30px;cursor:pointer}
+#bar .seg button[lang=ar]{font:700 15px var(--ar)}
+#bar .seg button.on{background:var(--teal);color:var(--bg)}
+#themeBtn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+#themeBtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+#themeBtn .moon{fill:currentColor;stroke:none}
+#themeBtn .sun,[data-theme=light] #themeBtn .moon{display:none}
+[data-theme=light] #themeBtn .sun{display:block}
+#bar button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 
 @media (max-width:640px){
   section{padding:80px 0}
@@ -230,7 +268,11 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 </head>
 <body>
 <div id="bg"><div class="grid"></div><div class="g1"></div><div class="g2"></div></div>
-<nav id="dots" aria-label="الفصول"></nav>
+<nav id="dots" aria-label="chapters"></nav>
+<div id="bar" role="toolbar" aria-label="settings">
+  <div class="seg" role="group" aria-label="language"><button data-lang="ar" lang="ar">ع</button><button data-lang="en" lang="en">EN</button></div>
+  <button id="themeBtn" aria-label="theme"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+</div>
 
 <!-- hero -->
 <header id="hero" data-ch>
@@ -241,24 +283,24 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
   <div class="photo reveal"><img src="avatar.jpg" alt="Saleh Elgendy"></div>
   <h1 class="name reveal" dir="ltr">Saleh Elgendy</h1>
   <div class="role reveal">ODOO DEVELOPER</div>
-  <p class="tag reveal">ببني Modules بـ Python و XML، وبشرح Odoo 20 على يوتيوب. انزل وشوف أنا وصلت لفين.</p>
-  <a class="btn reveal" href="#story">ابدأ من الأول <span class="down">↓</span></a>
+  <p class="tag reveal" data-t="tag">ببني Modules بـ Python و XML، وبشرح Odoo 20 على يوتيوب. انزل وشوف أنا وصلت لفين.</p>
+  <a class="btn reveal" href="#story" data-t="start">ابدأ من الأول <span class="down">↓</span></a>
 </header>
 
 <!-- 01 -->
 <section id="story" data-ch>
   <div class="wrap">
     <div class="chap reveal">chapter 01</div>
-    <h2 class="reveal">من فين بدأت</h2>
-    <p class="lead reveal">من الكمبيوتر ساينس، للمونتاج وإدارة فريق، لـ Odoo.</p>
+    <h2 class="reveal" data-t="h1">من فين بدأت</h2>
+    <p class="lead reveal" data-t="l1">من الكمبيوتر ساينس، للمونتاج وإدارة فريق، لـ Odoo.</p>
     <div class="tl">
-      <div class="it reveal"><span class="yr">2018 — 2022</span><h3>بكالوريوس Computer Science</h3><p>كلية الحاسبات ونظم المعلومات، جامعة 6 أكتوبر.</p></div>
-      <div class="it reveal"><span class="yr">2019 — 2022</span><h3>مونتير فيديو</h3><p>مونتاج المحتوى العلمي الشرعي: محاضرات ودروس طويلة بتتحول لمقاطع قصيرة واضحة. من هنا اتعلمت أشرح فكرة واحدة في دقيقة.</p></div>
-      <div class="it team reveal"><span class="yr">2022 — now</span><h3>مدير فريق الدال للإنتاج الرقمي</h3><p>فريق إنتاج رقمي متخصص في المحتوى العلمي الشرعي: بندير قنوات أصحاب الفضيلة والمؤسسات العلمية، ونحوّل الدروس الطويلة لمقاطع ومواد منظمة، ونحفظ تراث العلماء في أرشيف.</p><div class="stats"><div><b>+230M</b><small>مشاهدة على القنوات اللي أدرناها</small></div><div><b>+15K</b><small>مقطع منتَج</small></div><div><b>11</b><small>عضو في الفريق</small></div><div><b>14</b><small>مشروع وشراكة</small></div></div><a class="teamlink" href="https://salehelgendy1.github.io/aldall/" target="_blank" rel="noopener">شوف موقع الفريق وأعمالنا ←</a></div>
-      <div class="it od reveal"><span class="yr">Nov 2024 — Jan 2025</span><h3>Odoo من ناحية البيزنس</h3><p>كورس Odoo Functional Consultant في Kamah Tech، 3 مستويات: المبيعات والمخازن والتصنيع، وإزاي الشركة بتشتغل جوه Odoo.</p></div>
-      <div class="it od reveal"><span class="yr">Mar 2025 — now</span><h3>Odoo Development</h3><p>بعد ما فهمت البيزنس، دخلت في الكود: Python و XML و ORM و views و security.</p></div>
-      <div class="it od reveal"><span class="yr">Jan 2026</span><h3>قناة يوتيوب بتشرح Odoo</h3><p>سلسلة أساسيات Odoo 20، وفيديو عن اللي اتغير للمطورين في الإصدار ده من المصادر الرسمية، بدوبلاج إنجليزي.</p></div>
-      <div class="it next reveal"><span class="yr">next</span><h3>كورس Odoo Development مع منصة Vissionix</h3><p>محاضر لكورس Odoo Development للمبتدئين على Odoo 20 Community: من أول Module لحد مشروع كامل.</p></div>
+      <div class="it reveal"><span class="yr">2018 — 2022</span><h3 data-t="t1h">بكالوريوس Computer Science</h3><p data-t="t1p">كلية الحاسبات ونظم المعلومات، جامعة 6 أكتوبر.</p></div>
+      <div class="it reveal"><span class="yr">2019 — 2022</span><h3 data-t="t2h">مونتير فيديو</h3><p data-t="t2p">مونتاج المحتوى العلمي الشرعي: محاضرات ودروس طويلة بتتحول لمقاطع قصيرة واضحة. من هنا اتعلمت أشرح فكرة واحدة في دقيقة.</p></div>
+      <div class="it team reveal"><span class="yr">2022 — now</span><h3 data-t="t3h">مدير فريق الدال للإنتاج الرقمي</h3><p data-t="t3p">فريق إنتاج رقمي متخصص في المحتوى العلمي الشرعي: بندير قنوات أصحاب الفضيلة والمؤسسات العلمية، ونحوّل الدروس الطويلة لمقاطع ومواد منظمة، ونحفظ تراث العلماء في أرشيف.</p><div class="stats"><div><b>+230M</b><small data-t="s1">مشاهدة على القنوات اللي أدرناها</small></div><div><b>+15K</b><small data-t="s2">مقطع منتَج</small></div><div><b>11</b><small data-t="s3">عضو في الفريق</small></div><div><b>14</b><small data-t="s4">مشروع وشراكة</small></div></div><a class="teamlink" href="https://salehelgendy1.github.io/aldall/" target="_blank" rel="noopener" data-t="teamlink">شوف موقع الفريق وأعمالنا ←</a></div>
+      <div class="it od reveal"><span class="yr">Nov 2024 — Jan 2025</span><h3 data-t="t4h">Odoo من ناحية البيزنس</h3><p data-t="t4p">كورس Odoo Functional Consultant في Kamah Tech، 3 مستويات: المبيعات والمخازن والتصنيع، وإزاي الشركة بتشتغل جوه Odoo.</p></div>
+      <div class="it od reveal"><span class="yr">Mar 2025 — now</span><h3>Odoo Development</h3><p data-t="t5p">بعد ما فهمت البيزنس، دخلت في الكود: Python و XML و ORM و views و security.</p></div>
+      <div class="it od reveal"><span class="yr">Jan 2026</span><h3 data-t="t6h">قناة يوتيوب بتشرح Odoo</h3><p data-t="t6p">سلسلة أساسيات Odoo 20، وفيديو عن اللي اتغير للمطورين في الإصدار ده من المصادر الرسمية، بدوبلاج إنجليزي.</p></div>
+      <div class="it next reveal"><span class="yr">next</span><h3 data-t="t7h">كورس Odoo Development مع منصة Vissionix</h3><p data-t="t7p">محاضر لكورس Odoo Development للمبتدئين على Odoo 20 Community: من أول Module لحد مشروع كامل.</p></div>
     </div>
   </div>
 </section>
@@ -267,8 +309,8 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 <section id="build" data-ch>
   <div class="wrap">
     <div class="chap reveal">chapter 02</div>
-    <h2 class="reveal">إزاي بيتبني Module في Odoo</h2>
-    <p class="lead reveal">8 خطوات من موديول مكتبة حقيقي على Odoo 20. في كل خطوة، جرّب بنفسك في الشاشة اللي جنب الكود.</p>
+    <h2 class="reveal" data-t="h2">إزاي بيتبني Module في Odoo</h2>
+    <p class="lead reveal" data-t="l2">8 خطوات من موديول مكتبة حقيقي على Odoo 20. في كل خطوة، جرّب بنفسك في الشاشة اللي جنب الكود.</p>
     <div class="builder reveal">
       <div class="steps" id="steps" role="tablist"></div>
       <div class="panes">
@@ -277,13 +319,13 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
           <div class="lbl" id="plbl">preview · Odoo 20</div>
           <div class="odoo" id="odoo"></div>
           <div class="roles" id="roles" hidden>
-            <button data-r="guest">مستخدم عادي<small>no group</small></button>
+            <button data-r="guest"><span data-t="guest">مستخدم عادي</span><small>no group</small></button>
             <button data-r="user">Librarian<small>r</small></button>
             <button data-r="manager" class="on">Manager<small>crud</small></button>
           </div>
         </div>
       </div>
-      <div class="stepnav"><button id="prevS">→ اللي قبلها</button><button id="nextS">الخطوة الجاية ←</button></div>
+      <div class="stepnav"><button id="prevS" data-t="prev">→ اللي قبلها</button><button id="nextS" data-t="next">الخطوة الجاية ←</button></div>
     </div>
     <p class="note" id="snote"></p>
   </div>
@@ -293,22 +335,22 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 <section id="videos" data-ch>
   <div class="wrap">
     <div class="chap reveal">chapter 03 · youtube</div>
-    <h2 class="reveal">Odoo 20 من الكود نفسه</h2>
-    <p class="lead reveal">كل فيديو مبني على كود Odoo 20 الرسمي والـ release notes. فكرة واحدة، بكود حقيقي، والمصطلحات بالإنجليزي زي ما هتقابلها في الشغل.</p>
+    <h2 class="reveal" data-t="h3">Odoo 20 من الكود نفسه</h2>
+    <p class="lead reveal" data-t="l3">كل فيديو مبني على كود Odoo 20 الرسمي والـ release notes. فكرة واحدة، بكود حقيقي، والمصطلحات بالإنجليزي زي ما هتقابلها في الشغل.</p>
     <div class="vids">
       <a class="vid reveal" href="https://www.youtube.com/watch?v=ip9fWY6MhIY" target="_blank" rel="noopener">
         <div class="th" style="background-image:url('https://i.ytimg.com/vi/ip9fWY6MhIY/hqdefault.jpg')"></div>
-        <div class="tx"><h3>إيه اللي اتغير في كود Odoo 20 للمطورين</h3><p>من المصادر الرسمية · بدوبلاج إنجليزي وترجمات</p></div>
+        <div class="tx"><h3 data-t="v1h">إيه اللي اتغير في كود Odoo 20 للمطورين</h3><p data-t="v1p">من المصادر الرسمية · بدوبلاج إنجليزي وترجمات</p></div>
       </a>
       <a class="vid reveal" href="https://www.youtube.com/watch?v=TZ6IAisL-oY" target="_blank" rel="noopener">
         <div class="th" style="background-image:url('https://i.ytimg.com/vi/TZ6IAisL-oY/hqdefault.jpg')"></div>
-        <div class="tx"><h3>5 أخطاء وإنت بتشغّل Odoo 20 على Windows</h3><p>المشكلة، وسببها، وحلها</p></div>
+        <div class="tx"><h3 data-t="v2h">5 أخطاء وإنت بتشغّل Odoo 20 على Windows</h3><p data-t="v2p">المشكلة، وسببها، وحلها</p></div>
       </a>
     </div>
     <div class="series reveal">
-      <h3>سلسلة أساسيات Odoo 20 <small>· 10 ريلز</small></h3>
+      <h3 data-t="ser">سلسلة أساسيات Odoo 20 <small>· 10 ريلز</small></h3>
       <div class="eps">
-        <span><b>01</b>أول Module</span><span><b>02</b>self</span><span><b>03</b>Fields</span><span><b>04</b>Relations</span><span><b>05</b>ORM</span>
+        <span><b>01</b><span data-t="ep1">أول Module</span></span><span><b>02</b>self</span><span><b>03</b>Fields</span><span><b>04</b>Relations</span><span><b>05</b>ORM</span>
         <span><b>06</b>Computed fields</span><span><b>07</b>onchange vs constrains</span><span><b>08</b>Views · Actions · Menus</span><span><b>09</b>Inheritance</span><span><b>10</b>Security</span>
       </div>
     </div>
@@ -319,10 +361,10 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 <section id="tools" data-ch>
   <div class="wrap">
     <div class="chap reveal">chapter 04</div>
-    <h2 class="reveal">أدواتي</h2>
-    <p class="lead reveal">دوس على أي أداة.</p>
+    <h2 class="reveal" data-t="h4">أدواتي</h2>
+    <p class="lead reveal" data-t="l4">دوس على أي أداة.</p>
     <div class="tools reveal" id="toolbtns"></div>
-    <div class="toolbox reveal" id="toolbox">اختار أداة، وأقولك بستخدمها في إيه.</div>
+    <div class="toolbox reveal" id="toolbox" data-t="toolbox">اختار أداة، وأقولك بستخدمها في إيه.</div>
   </div>
 </section>
 
@@ -330,11 +372,11 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 <section id="end" data-ch>
   <div class="wrap">
     <div class="chap reveal">chapter 05</div>
-    <h2 class="reveal">وصلت للآخر. وإنت؟</h2>
-    <p class="lead reveal">اختار اللي يناسبك.</p>
+    <h2 class="reveal" data-t="h5">وصلت للآخر. وإنت؟</h2>
+    <p class="lead reveal" data-t="l5">اختار اللي يناسبك.</p>
     <div class="paths reveal">
-      <button class="path" data-p="hire"><code>&lt;hire/&gt;</code><b>بتدوّر على Odoo Developer</b><small>لفريقك</small></button>
-      <button class="path" data-p="learn"><code>&lt;learn/&gt;</code><b>عايز تتعلم Odoo</b><small>من الصفر وبالمصري</small></button>
+      <button class="path" data-p="hire"><code>&lt;hire/&gt;</code><b data-t="p1b">بتدوّر على Odoo Developer</b><small data-t="p1s">لفريقك</small></button>
+      <button class="path" data-p="learn"><code>&lt;learn/&gt;</code><b data-t="p2b">عايز تتعلم Odoo</b><small data-t="p2s">من الصفر وبالمصري</small></button>
     </div>
     <p class="answer reveal" id="answer"></p>
     <div class="links reveal">
@@ -344,7 +386,7 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
       </a>
       <a class="lk" href="https://wa.me/201002623291" target="_blank" rel="noopener">
         <span class="ic" style="background:#25d366"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></span>
-        <div><b>WhatsApp</b><small class="wa">ابعتلي رسالة على طول</small></div><span class="ar">←</span>
+        <div><b>WhatsApp</b><small class="wa" data-t="wa">ابعتلي رسالة على طول</small></div><span class="ar">←</span>
       </a>
       <a class="lk" href="https://www.youtube.com/@Saleh_Elgendy" target="_blank" rel="noopener">
         <span class="ic" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="#fff"><path d="M9.5 7.5v9l7.5-4.5z"/></svg></span>
@@ -395,6 +437,7 @@ function block(f,lang,src){
 
 const S=[
 {tab:'Model',note:'الـ Model بيعمل جدول في PostgreSQL. وحتى من غير ولا field، Odoo بيضيف الأعمدة الأساسية لوحده: الـ id، ومين عمل الريكورد، وإمتى.',
+ note_en:'A model creates a table in PostgreSQL. Even with no fields, Odoo adds the basic columns itself: the id, who created the record, and when.',
  code:[['__manifest__.py','py',`
 +{
 +    "name": "Library",
@@ -410,6 +453,7 @@ class LibraryBook(models.Model):
 +    _description = "Library Book"
 +    _order = "name"`]]},
 {tab:'Fields',note:'كل field بقى عمود في الجدول. والـ Many2one بيتخزن رقم id بيشاور على جدول تاني.',
+ note_en:'Each field became a column in the table. A Many2one is stored as an id that points to another table.',
  code:[['models/library_book.py','py',`
 from odoo import fields, models
 
@@ -429,6 +473,7 @@ class LibraryBook(models.Model):
 +        default="ar",
 +    )`]]},
 {tab:'Views',note:'الـ views بتقول لـ Odoo يعرض الداتا إزاي. بدّل بين List و Form. بس لسه مفيش Menu، فالمستخدم مش هيعرف يوصل هنا.',
+ note_en:'Views tell Odoo how to show the data. Switch between List and Form. There\'s no menu yet, so users can\'t reach this screen.',
  code:[['views/library_book_views.xml','xml',`
 <record id="library_book_view_list" model="ir.ui.view">
   <field name="model">library.book</field>
@@ -460,6 +505,7 @@ class LibraryBook(models.Model):
   </field>
 </record>`]]},
 {tab:'Menu',note:'الـ Action بيفتح الـ views، والـ Menu بيوصّل للـ Action. دلوقتي Library ظهر فوق. دوس على أي كتاب.',
+ note_en:'The action opens the views, and the menu leads to the action. Library now shows up at the top. Click any book.',
  code:[['views/library_book_views.xml','xml',`
 +<record id="library_book_action" model="ir.actions.act_window">
 +  <field name="name">Books</field>
@@ -473,6 +519,7 @@ class LibraryBook(models.Model):
 +          parent="library_menu_catalog"
 +          action="library_book_action"/>`]]},
 {tab:'Compute',note:'available_copies مش بيتكتب بالإيد. Odoo بيحسبه لوحده كل ما copies أو حالة الاستعارة تتغير. زوّد النسخ أو قللها وشوف.',
+ note_en:'available_copies isn\'t typed by hand. Odoo computes it whenever copies or a loan\'s state changes. Add or remove copies and watch.',
  code:[['models/library_book.py','py',`
 from odoo import api, fields, models
 
@@ -492,6 +539,7 @@ class LibraryBook(models.Model):
 +                lambda loan: loan.state == "ongoing")
 +            book.available_copies = book.copies - len(ongoing)`]]},
 {tab:'Constraints',note:'اكتب ISBN مش 13 رقم، أو خلي النسخ بالسالب، ودوس Save. الـ ISBN بيمسكه Python، والنسخ السالبة بيمسكها PostgreSQL نفسه.',
+ note_en:'Type an ISBN that isn\'t 13 digits, or set negative copies, then click Save. Python catches the ISBN; PostgreSQL itself catches negative copies.',
  code:[['models/library_book.py','py',`
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
@@ -514,6 +562,7 @@ class LibraryBook(models.Model):
 +                raise ValidationError(
 +                    "ISBN must be exactly 13 digits.")`]]},
 {tab:'Buttons',note:'الزرار بينادي function في Python، والـ statusbar بيتحرك. ولو مفيش نسخ متاحة، Odoo بيرفض. جرّب ترجع لـ Compute، وتخلي النسخ 1، وبعدين تيجي هنا.',
+ note_en:'The button calls a Python method, and the statusbar moves. If no copies are available, Odoo refuses. Try going back to Compute, set copies to 1, then come back.',
  code:[['models/library_loan.py','py',`
 from odoo import fields, models
 from odoo.exceptions import UserError
@@ -554,6 +603,7 @@ class LibraryLoan(models.Model):
   <sheet>...</sheet>
 </form>`]]},
 {tab:'Security',note:'في Odoo 20 الصلاحيات في ir.access.csv. حرف r معناه قراءة بس، و crud معناه كل حاجة. والـ Menu نفسه مقفول على الـ group. غيّر المستخدم تحت.',
+ note_en:'In Odoo 20, access rights live in ir.access.csv. r means read only, crud means everything. The menu itself is locked to the group. Switch the user below.',
  code:[['security/ir.access.csv','csv',`
 +id,name,model_id,group_id/id,operation,domain
 +access_book_librarian,book: librarian read,library.book,group_library_user,r,
@@ -630,7 +680,7 @@ function render(){
     cp=`${btn}<div class="status">${st.map(s=>`<span class="${s===loan?'on':''}">${s[0].toUpperCase()+s.slice(1)}</span>`).join('')}</div>`;
     body=`<div class="sheet"><div class="h">LOAN/0002</div>${row('Book',B.title)}<div class="row calc"><label>Available</label><div class="v${bump?' bump':''}">${avail()}</div></div>${row('Member','Ahmed Ali')}${row('Loan Date','2026-11-09')}${loan==='returned'?row('Return Date','2026-11-09'):''}</div>`;
   }else{
-    if(role==='guest'){cp='<div class="crumb">Discuss</div>';body='<div class="empty">تطبيق Library مش ظاهر خالص<br>لأن الـ Menu مقفول على group_library_user</div>'}
+    if(role==='guest'){cp='<div class="crumb">Discuss</div>';body=window.LANG==='en'?'<div class="empty">The Library app doesn\'t show up at all<br>because its menu is locked to group_library_user</div>':'<div class="empty">تطبيق Library مش ظاهر خالص<br>لأن الـ Menu مقفول على group_library_user</div>'}
     else if(role==='user'){cp=`<div class="crumb"><a>Books</a> / ${B.title}</div><span class="ro-tag">Read only</span>`;body=bookForm('ro')}
     else{cp=`<div class="crumb"><a>Books</a> / ${B.title}</div><button class="ob">New</button><button class="ob sec">Delete</button>`;body=bookForm('static')}
   }
@@ -668,15 +718,26 @@ function go(i){
   [...tabs.children].forEach((b,k)=>{b.classList.toggle('on',k===i);b.classList.toggle('done',k<i)});
   const t=tabs.children[i];tabs.scrollTo({left:t.offsetLeft-tabs.clientWidth/2+t.clientWidth/2,behavior:'smooth'});
   $('code').innerHTML=S[i].code.map(c=>block(c[0],c[1],c[2])).join('<span class="gap"></span>');$('code').scrollTop=0;
-  $('snote').textContent=S[i].note;$('roles').hidden=i!==7;
+  $('snote').textContent=window.LANG==='en'?S[i].note_en:S[i].note;$('roles').hidden=i!==7;
   $('prevS').disabled=i===0;$('nextS').disabled=i===S.length-1;
   render();
 }
 $('prevS').onclick=()=>go(Math.max(0,cur-1));$('nextS').onclick=()=>go(Math.min(S.length-1,cur+1));
 go(0);
+window.rerenderBuilder=()=>go(cur);
 })();
 
 /* tools */
+const T_EN={
+ 'Python':'For models and business logic: computed fields, constraints and overrides with <b>super()</b>.',
+ 'XML':'Views (form · list · search · kanban), actions and menus, and inheritance with <b>xpath</b>.',
+ 'Odoo ORM':'<b>search · create · write · browse</b> instead of writing SQL by hand, knowing that <b>self</b> can be more than one record.',
+ 'PostgreSQL':'The database Odoo runs on. I open it to understand the tables and relations from the inside.',
+ 'QWeb':'Reports and templates in Odoo.',
+ 'Git':'To track my code. My modules will be published on GitHub.',
+ 'VS Code':'I run Odoo 20 from source on Windows and <b>debug</b> with breakpoints.',
+ 'Premiere Pro':'From my editing days. Now I use it for my Odoo videos.'
+};
 const T={
  'Python':'بكتب بيه الـ models والـ business logic: computed fields و constraints و overrides بـ <b>super()</b>.',
  'XML':'الـ views (form · list · search · kanban) والـ actions والـ menus، والـ inheritance بـ <b>xpath</b>.',
@@ -688,12 +749,66 @@ const T={
  'Premiere Pro':'من أيام المونتاج، ودلوقتي بعمل بيه فيديوهات شرح Odoo على القناة.'
 };
 const tb=document.getElementById('toolbtns'),box=document.getElementById('toolbox');
-Object.keys(T).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));box.innerHTML='<b>'+k+'</b> — '+T[k];box.classList.add('on')};tb.appendChild(b)});
+Object.keys(T).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));box.dataset.k=k;box.innerHTML='<b>'+k+'</b> — '+(window.LANG==='en'?T_EN:T)[k];box.classList.add('on')};tb.appendChild(b)});
 
 /* end paths */
 const A={hire:'كلّمني على <a href="https://wa.me/201002623291" target="_blank" rel="noopener">WhatsApp</a> أو <a href="https://www.linkedin.com/in/salehelgendy" target="_blank" rel="noopener">LinkedIn</a>، ولو حابب تشوف مستوايا قبلها، الفيديوهات فوق فيها كود حقيقي.',
  learn:'ابدأ بـ <a href="https://www.youtube.com/@Saleh_Elgendy" target="_blank" rel="noopener">سلسلة أساسيات Odoo 20</a> على القناة، من أول Module لحد الـ Security.'};
-document.querySelectorAll('.path').forEach(p=>p.onclick=()=>{document.querySelectorAll('.path').forEach(x=>x.classList.toggle('on',x===p));document.getElementById('answer').innerHTML=A[p.dataset.p]});
+const A_EN={hire:'Message me on <a href="https://wa.me/201002623291" target="_blank" rel="noopener">WhatsApp</a> or <a href="https://www.linkedin.com/in/salehelgendy" target="_blank" rel="noopener">LinkedIn</a>. If you\'d like to see my level first, the videos above have real code.',
+ learn:'Start with the <a href="https://www.youtube.com/playlist?list=PLDoKnepNcgiM" target="_blank" rel="noopener">Odoo 20 Basics series</a> on my channel, from your first module to security.'};
+document.querySelectorAll('.path').forEach(p=>p.onclick=()=>{document.querySelectorAll('.path').forEach(x=>x.classList.toggle('on',x===p));const an=document.getElementById('answer');an.dataset.p=p.dataset.p;an.innerHTML=(window.LANG==='en'?A_EN:A)[p.dataset.p]});
+
+/* language + theme switch */
+(function(){
+const EN={
+ tag:'I build Odoo modules with Python and XML, and explain Odoo 20 on YouTube. Scroll down to see where I am now.',
+ start:'Start from the beginning <span class="down">↓</span>',
+ h1:'Where I started', l1:'From computer science, to video editing and leading a team, to Odoo.',
+ t1h:'B.Sc. Computer Science', t1p:'Faculty of Information Systems and Computer Science, October 6 University.',
+ t2h:'Video Editor', t2p:'Editing Islamic educational content: long lectures and lessons turned into short, clear clips. That\'s where I learned to explain one idea in a minute.',
+ t3h:'Team Manager, Al Dall Digital Production', t3p:'A digital production team focused on Islamic educational content: we manage the channels of scholars and Islamic institutions, turn long lessons into organized clips and materials, and archive scholars\' work.',
+ s1:'views on channels we managed', s2:'clips produced', s3:'team members', s4:'projects and partnerships',
+ teamlink:'See the team\'s website and work →',
+ t4h:'Odoo from the business side', t4p:'Odoo Functional Consultant course at Kamah Tech, 3 levels: sales, inventory and manufacturing, and how a company runs inside Odoo.',
+ t5p:'After the business side, I moved to the code: Python, XML, ORM, views and security.',
+ t6h:'A YouTube channel explaining Odoo', t6p:'An Odoo 20 basics series, and a video on what changed for developers in this release, from official sources, with an English dub.',
+ t7h:'Odoo Development course with Vissionix', t7p:'Instructor of an Odoo Development course for beginners on Odoo 20 Community: from the first module to a full project.',
+ h2:'How an Odoo module is built', l2:'8 steps from a real library module on Odoo 20. At each step, try it yourself in the screen next to the code.',
+ guest:'Regular user', prev:'← Previous', next:'Next step →',
+ h3:'Odoo 20, from the code itself', l3:'Every video is built on Odoo 20\'s official code and release notes. One idea, real code, explained in Arabic with the technical terms in English.',
+ v1h:'What changed in Odoo 20 code for developers', v1p:'From official sources · English dub and subtitles',
+ v2h:'5 errors when running Odoo 20 on Windows', v2p:'The problem, its cause, and the fix',
+ ser:'Odoo 20 Basics series <small>· 10 reels</small>', ep1:'Your first module',
+ h4:'My tools', l4:'Click any tool.', toolbox:'Pick a tool and I\'ll tell you what I use it for.',
+ h5:'You reached the end. Your turn.', l5:'Pick what fits you.',
+ p1b:'Looking for an Odoo Developer', p1s:'for your team', p2b:'Want to learn Odoo', p2s:'from scratch, in Arabic',
+ wa:'Message me directly'
+};
+const AR={};document.querySelectorAll('[data-t]').forEach(e=>AR[e.dataset.t]=e.innerHTML);
+const TITLE={ar:'صالح الجندي — Odoo Developer',en:'Saleh Elgendy — Odoo Developer'};
+const d=document.documentElement;
+function setLang(l){
+  window.LANG=l;d.lang=l;d.dir=l==='en'?'ltr':'rtl';document.title=TITLE[l];
+  const D=l==='en'?EN:AR;
+  document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(k==='toolbox'&&e.dataset.k)return;if(D[k]!=null)e.innerHTML=D[k]});
+  const box=document.getElementById('toolbox');if(box.dataset.k)box.innerHTML='<b>'+box.dataset.k+'</b> — '+(l==='en'?T_EN:T)[box.dataset.k];
+  const an=document.getElementById('answer');if(an.dataset.p)an.innerHTML=(l==='en'?A_EN:A)[an.dataset.p];
+  window.rerenderBuilder&&window.rerenderBuilder();
+  document.querySelectorAll('#bar [data-lang]').forEach(b=>{b.classList.toggle('on',b.dataset.lang===l);b.setAttribute('aria-pressed',b.dataset.lang===l)});
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+function setTheme(t){
+  d.setAttribute('data-theme',t);
+  document.querySelector('meta[name=theme-color]').content=t==='light'?'#f8f5f8':'#0d0a12';
+  document.getElementById('themeBtn').setAttribute('aria-label',t==='light'?'Switch to dark theme':'Switch to light theme');
+  try{localStorage.setItem('theme',t)}catch(e){}
+}
+document.querySelectorAll('#bar [data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+let lastY=scrollY,lockT=0;const bar=document.getElementById('bar');bar.addEventListener('click',()=>{lockT=Date.now();bar.classList.remove('hide')});
+addEventListener('scroll',()=>{const y=scrollY;if(Date.now()-lockT<1000){lastY=y;return}if(Math.abs(y-lastY)<8)return;bar.classList.toggle('hide',y>lastY&&y>120);lastY=y},{passive:true});
+document.getElementById('themeBtn').onclick=()=>setTheme(d.getAttribute('data-theme')==='light'?'dark':'light');
+setTheme(d.getAttribute('data-theme')||'dark');setLang(d.lang==='en'?'en':'ar');
+})();
 </script>
 </body>
 </html>
