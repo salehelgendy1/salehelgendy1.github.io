@@ -232,9 +232,25 @@ h2{font-size:clamp(26px,5vw,36px);font-weight:700;text-align:center;line-height:
 
 /* tools */
 .tools{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.tools button{font:600 14px var(--en);background:var(--card);border:1px solid var(--line);color:var(--ink);padding:9px 18px;border-radius:30px;cursor:pointer;transition:.25s}
-.tools button:hover{border-color:var(--plum)}
-.tools button.on{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+.tgroups{display:flex;flex-direction:column;gap:18px;align-items:center}
+.tgroup{display:flex;flex-direction:column;align-items:center;gap:10px}
+.tgroup h3{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.tools button,.tgroup button{font:600 14px var(--en);background:var(--card);border:1px solid var(--line);color:var(--ink);padding:9px 18px;border-radius:30px;cursor:pointer;transition:.25s}
+.tools button:hover,.tgroup button:hover{border-color:var(--plum)}
+.tools button.on,.tgroup button.on{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+.tgroup .row2{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.langs{margin:22px auto 0;max-width:560px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.langs b{font-size:14px;color:var(--muted);margin-inline-end:4px}
+.langs span{font-size:14px;border:1px solid var(--line);border-radius:20px;padding:5px 14px;background:var(--card)}
+.topics{margin:8px 0 0;padding-inline-start:18px;color:var(--muted);font-size:14.5px}
+.topics li{margin-bottom:4px}
+.topics b{color:var(--ink);font-family:var(--en);font-weight:600}
+.sub .topics{list-style:disc;margin-top:6px}
+.sub .topics li{margin-bottom:4px}
+.sub .topics li::before{content:none}
+.sub .topics li>b{display:inline;font-size:inherit;margin:0}
+.tgroup button{direction:ltr;unicode-bidi:isolate}
+.tgroup button.on{color:#fff!important;font-weight:700}
 .toolbox{margin:24px auto 0;max-width:560px;min-height:92px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:16px 20px;text-align:center;color:var(--muted);transition:.3s}
 .toolbox.on{border-style:solid;border-color:rgba(53,194,181,.4);color:var(--ink)}
 .toolbox b{color:var(--teal);font-family:var(--en)}
@@ -276,7 +292,7 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
 [data-theme=light] #bg .grid{opacity:.5}
 [data-theme=light] #bg .g1,[data-theme=light] #bg .g2{opacity:.8}
 [data-theme=light] .builder,[data-theme=light] .term{--ink:#f5eff4;--muted:#a99ca8;--dim:#6f6470;--line:rgba(255,255,255,.09);--card:rgba(255,255,255,.04);--plum:#e6b9dc;--teal:#35c2b5;color:var(--ink);background:#17111d}
-[data-theme=light] .tools button.on,[data-theme=light] #bar .seg button.on{color:#fff}
+[data-theme=light] .tgroup button.on,[data-theme=light] .tools button.on,[data-theme=light] #bar .seg button.on{color:#fff}
 
 /* toolbar */
 #bar{position:fixed;top:14px;inset-inline-end:14px;z-index:10;display:flex;gap:8px}
@@ -320,7 +336,7 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
   <div class="photo reveal"><img src="avatar.jpg" alt="Saleh Elgendy"></div>
   <h1 class="name reveal" dir="ltr">Saleh Elgendy</h1>
   <div class="role reveal">ODOO DEVELOPER</div>
-  <p class="tag reveal" data-t="tag">ببني Modules بـ Python و XML، وبشرح Odoo 20 على يوتيوب. انزل وشوف أنا وصلت لفين.</p>
+  <p class="tag reveal" data-t="tag">Odoo Developer من 2024: ببني Modules كاملة بـ Python و XML على Odoo 20، وفاهم البيزنس من المبيعات للمخازن للتصنيع. وبشرح Odoo على يوتيوب.</p>
   <a class="btn reveal" href="#story" data-t="start">ابدأ من الأول <span class="down">↓</span></a>
 </header>
 
@@ -331,13 +347,13 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
     <h2 class="reveal" data-t="h1">من فين بدأت</h2>
     <p class="lead reveal" data-t="l1">من الكمبيوتر ساينس، للمونتاج وإدارة فريق، لـ Odoo.</p>
     <div class="tl">
-      <div class="it reveal"><span class="yr">2018 — 2022</span><h3 data-t="t1h">بكالوريوس Computer Science</h3><p data-t="t1p">كلية الحاسبات ونظم المعلومات، جامعة 6 أكتوبر.</p></div>
+      <div class="it reveal"><span class="yr">2018 — 2022</span><h3 data-t="t1h">بكالوريوس Computer Science · تقدير جيد</h3><p data-t="t1p">كلية الحاسبات ونظم المعلومات، جامعة 6 أكتوبر.</p><ul class="topics" data-t="t1l"><li>قواعد البيانات، والـ Data Structures، والبرمجة بـ C++ و Python و Dart.</li><li>شهادة Huawei HCIA-5G.</li><li>مشروع التخرج: <b>Construction Productivity System</b>، بتقدير امتياز.</li></ul></div>
       <div class="it reveal"><span class="yr">2019 — 2022</span><h3 data-t="t2h">مونتير فيديو</h3><p data-t="t2p">مونتاج المحتوى العلمي الشرعي: محاضرات ودروس طويلة بتتحول لمقاطع قصيرة واضحة. من هنا اتعلمت أشرح فكرة واحدة في دقيقة.</p></div>
       <div class="it team reveal"><span class="yr">2022 — now</span><h3 data-t="t3h">مدير فريق الدال للإنتاج الرقمي</h3><p data-t="t3p">فريق إنتاج رقمي متخصص في المحتوى العلمي الشرعي: بندير قنوات أصحاب الفضيلة والمؤسسات العلمية، ونحوّل الدروس الطويلة لمقاطع ومواد منظمة، ونحفظ تراث العلماء في أرشيف.</p><div class="stats"><div><b>+230M</b><small data-t="s1">مشاهدة على القنوات اللي أدرناها</small></div><div><b>+15K</b><small data-t="s2">مقطع منتَج</small></div><div><b>11</b><small data-t="s3">عضو في الفريق</small></div><div><b>14</b><small data-t="s4">مشروع وشراكة</small></div></div><a class="teamlink" href="https://salehelgendy1.github.io/aldall/" target="_blank" rel="noopener" data-t="teamlink">شوف موقع الفريق وأعمالنا ←</a></div>
-      <div class="it dev reveal"><span class="yr">Jun 2024 — now</span><h3>Odoo Development</h3><p data-t="d0">رحلتي في Odoo: من الأساسيات، لكورس عملي، لحد Modules كاملة شغالة على Odoo 20.</p>
+      <div class="it dev reveal"><span class="yr">May 2024 — now</span><h3>Odoo Development</h3><p data-t="d0">رحلتي في Odoo: من الأساسيات، لكورس عملي، لحد Modules كاملة شغالة على Odoo 20.</p>
         <ol class="sub">
-          <li><span class="yr">Jun 2024</span><b data-t="d1h">الأساسيات</b><p data-t="d1p">إزاي يتبني Module من الصفر: الـ manifest، والـ models والـ fields والعلاقات بينها، والـ ORM، والـ views (form · list · search)، والـ actions والـ menus، والـ security، والـ inheritance.</p></li>
-          <li><span class="yr">22 Nov 2024 — 10 Jan 2025</span><b>Odoo Functional Consultant Training</b><p data-t="d2p">Levels 1، 2، 3 في Kamah Tech بالمقر الرئيسي. خدته عشان أزوّد خبرتي العملية: دورة المبيعات والمخازن والتصنيع زي ما الشركات بتشتغل بيها فعلاً.</p><a class="sublink" href="#certs" data-t="d2l">شوف الشهادة ←</a></li>
+          <li><span class="yr">May 2024</span><b data-t="d1h">الأساسيات</b><p data-t="d1p">إزاي يتبني Module من الصفر: الـ manifest، والـ models والـ fields والعلاقات بينها، والـ ORM، والـ views (form · list · search)، والـ actions والـ menus، والـ security، والـ inheritance.</p></li>
+          <li><span class="yr">22 Nov 2024 — 10 Jan 2025</span><b>Odoo Functional Consultant Training</b><p data-t="d2p">Levels 1، 2، 3 في Kamah Tech بالمقر الرئيسي. اتعلمت فيه:</p><ul class="topics" data-t="d2t"><li><b>Sales:</b> من عرض السعر لأمر البيع للفاتورة.</li><li><b>Inventory:</b> المخازن والـ locations وحركات الاستلام والتسليم، والـ lots وتواريخ الصلاحية.</li><li><b>Manufacturing:</b> الـ BoM وأوامر التصنيع، وإزاي الخامات بتتصرف من المخزن.</li><li><b>Configuration:</b> إزاي الإعدادات بتربط المبيعات والمخازن والتصنيع ببعض.</li></ul><a class="sublink" href="#certs" data-t="d2l">شوف الشهادة ←</a></li>
           <li><span class="yr">2025 — now</span><b data-t="d3h">مشاريع كاملة على Odoo 20</b>
             <div class="proj"><b>Library Management</b><p data-t="d3a">كتب ومؤلفين وتصنيفات واستعارات، غرامة تأخير بتتحسب لوحدها وتطلع فاتورة بزرار، wizard للإرجاع، تقرير QWeb، وتذكير يومي بالـ cron.</p></div>
             <div class="proj"><b>Clinic Management</b><p data-t="d3b">مرضى ودكاترة وتخصصات، مواعيد على حسب أيام شغل كل دكتور، روشتات، wizard وتقرير.</p></div>
@@ -442,8 +458,9 @@ footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px
     <div class="chap reveal">chapter 04</div>
     <h2 class="reveal" data-t="h4">أدواتي</h2>
     <p class="lead reveal" data-t="l4">دوس على أي أداة.</p>
-    <div class="tools reveal" id="toolbtns"></div>
+    <div class="tgroups reveal" id="toolbtns"></div>
     <div class="toolbox reveal" id="toolbox" data-t="toolbox">اختار أداة، وأقولك بستخدمها في إيه.</div>
+    <div class="langs reveal"><b data-t="lgh">اللغات</b><span data-t="lg1">العربية · لغة أم</span><span data-t="lg2">الإنجليزية · Limited working proficiency</span></div>
   </div>
 </section>
 
@@ -815,7 +832,8 @@ const T_EN={
  'QWeb':'Reports and templates in Odoo.',
  'Git':'To track my code. My modules will be published on GitHub.',
  'VS Code':'I run Odoo 20 from source on Windows and <b>debug</b> with breakpoints.',
- 'Premiere Pro':'From my editing days. Now I use it for my Odoo videos.'
+ 'C++':'Data structures and OOP from university.',
+ 'Dart':'Mobile apps in Dart.'
 };
 const T={
  'Python':'بكتب بيه الـ models والـ business logic: computed fields و constraints و overrides بـ <b>super()</b>.',
@@ -825,10 +843,22 @@ const T={
  'QWeb':'الـ reports والـ templates في Odoo.',
  'Git':'بتابع بيه الكود بتاعي، والـ modules هتتنشر على GitHub.',
  'VS Code':'بشغّل Odoo 20 من السورس على Windows وبعمل <b>debug</b> بالـ breakpoints.',
- 'Premiere Pro':'من أيام المونتاج، ودلوقتي بعمل بيه فيديوهات شرح Odoo على القناة.'
+ 'C++':'الـ Data Structures والـ OOP من الجامعة.',
+ 'Dart':'تطبيقات موبايل بـ Dart.'
 };
 const tb=document.getElementById('toolbtns'),box=document.getElementById('toolbox');
-Object.keys(T).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));box.dataset.k=k;box.innerHTML='<b>'+k+'</b> — '+(window.LANG==='en'?T_EN:T)[k];box.classList.add('on')};tb.appendChild(b)});
+const GROUPS=[
+ {ar:'Odoo والكود',en:'Odoo & code',items:['Python','XML','Odoo ORM','PostgreSQL','QWeb','Git','VS Code','C++','Dart']},
+ {ar:'التصميم والمونتاج',en:'Design & video',items:['Adobe Premiere','After Effects','Final Cut','Photoshop','Illustrator','InDesign','Adobe XD','Figma']},
+ {ar:'أدوات تانية',en:'Other tools',items:['Android Studio','Word','Excel','PowerPoint','MS Project']}];
+const DESIGN_AR='من 2019 في المونتاج وفي إدارة فريق الدال: مونتاج، وموشن جرافيك، وتصميم أغلفة وإعلانات. ودلوقتي بعمل بيها فيديوهات شرح Odoo.';
+const DESIGN_EN='Since 2019, in video editing and leading the Al Dall team: editing, motion graphics, covers and ads. Now I also use them for my Odoo videos.';
+const OTHER={'Android Studio':['تطبيقات Android من أيام الجامعة.','Android apps from my university years.'],'Word':['التقارير والعروض وتنظيم الشغل.','Reports, presentations and organizing work.'],'Excel':['التقارير والعروض وتنظيم الشغل.','Reports, presentations and organizing work.'],'PowerPoint':['التقارير والعروض وتنظيم الشغل.','Reports, presentations and organizing work.'],'MS Project':['تخطيط المشاريع ومواعيد التسليم.','Planning projects and deadlines.']};
+function tdesc(k){const en=window.LANG==='en';if(T[k])return (en?T_EN:T)[k];if(OTHER[k])return OTHER[k][en?1:0];return en?DESIGN_EN:DESIGN_AR}
+window.tdesc=tdesc;
+GROUPS.forEach(g=>{const w=document.createElement('div');w.className='tgroup';const h=document.createElement('h3');h.dataset.ar=g.ar;h.dataset.en=g.en;h.textContent=window.LANG==='en'?g.en:g.ar;w.appendChild(h);const r=document.createElement('div');r.className='row2';
+ g.items.forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));box.dataset.k=k;box.innerHTML='<b>'+k+'</b> — '+tdesc(k);box.classList.add('on')};r.appendChild(b)});
+ w.appendChild(r);tb.appendChild(w)});
 
 /* end paths */
 const A={hire:'كلّمني على <a href="https://wa.me/201002623291" target="_blank" rel="noopener">WhatsApp</a> أو <a href="https://www.linkedin.com/in/salehelgendy" target="_blank" rel="noopener">LinkedIn</a>، ولو حابب تشوف مستوايا قبلها، الفيديوهات فوق فيها كود حقيقي.',
@@ -848,17 +878,19 @@ dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 /* language + theme switch */
 (function(){
 const EN={
- tag:'I build Odoo modules with Python and XML, and explain Odoo 20 on YouTube. Scroll down to see where I am now.',
+ tag:'Odoo Developer since 2024: I build complete modules in Python and XML on Odoo 20, with a business understanding of sales, inventory and manufacturing. I also explain Odoo on YouTube.',
  start:'Start from the beginning <span class="down">↓</span>',
  h1:'Where I started', l1:'From computer science, to video editing and leading a team, to Odoo.',
- t1h:'B.Sc. Computer Science', t1p:'Faculty of Information Systems and Computer Science, October 6 University.',
+ t1h:'B.Sc. Computer Science · Grade: Good',
+ t1l:'<li>Databases, data structures, and programming in C++, Python and Dart.</li><li>Huawei HCIA-5G certificate.</li><li>Graduation project: <b>Construction Productivity System</b>, grade: Excellent.</li>', t1p:'Faculty of Information Systems and Computer Science, October 6 University.',
  t2h:'Video Editor', t2p:'Editing Islamic educational content: long lectures and lessons turned into short, clear clips. That\'s where I learned to explain one idea in a minute.',
  t3h:'Team Manager, Al Dall Digital Production', t3p:'A digital production team focused on Islamic educational content: we manage the channels of scholars and Islamic institutions, turn long lessons into organized clips and materials, and archive scholars\' work.',
  s1:'views on channels we managed', s2:'clips produced', s3:'team members', s4:'projects and partnerships',
  teamlink:'See the team\'s website and work →',
  d0:'My Odoo journey: from the basics, to a hands-on course, to complete modules running on Odoo 20.',
  d1h:'The basics', d1p:'How to build a module from scratch: the manifest, models, fields and relations, the ORM, views (form · list · search), actions and menus, security and inheritance.',
- d2p:'Levels 1, 2 and 3 at Kamah Tech headquarters. I took it to build more practical experience: the sales, inventory and manufacturing flows the way companies actually run them.', d2l:'View the certificate →',
+ d2p:'Levels 1, 2 and 3 at Kamah Tech headquarters. What I learned:',
+ d2t:'<li><b>Sales:</b> from quotation to sales order to invoice.</li><li><b>Inventory:</b> warehouses, locations, receipts and deliveries, lots and expiry dates.</li><li><b>Manufacturing:</b> BoMs, manufacturing orders, and how components are consumed from stock.</li><li><b>Configuration:</b> how the settings connect sales, inventory and manufacturing.</li>', d2l:'View the certificate →',
  d3h:'Complete projects on Odoo 20',
  d3a:'Books, authors, categories and loans, a late fee that is computed automatically and invoiced with one click, a return wizard, a QWeb report, and a daily cron reminder.',
  d3b:'Patients, doctors and specialties, appointments based on each doctor\'s working days, prescriptions, a wizard and a report.',
@@ -870,6 +902,7 @@ const EN={
  v1h:'What changed in Odoo 20 code for developers', v1p:'From official sources · English dub and subtitles',
  v2h:'5 errors when running Odoo 20 on Windows', v2p:'The problem, its cause, and the fix',
  ser:'Odoo 20 Basics series <small>· 10 reels</small>', serlink:'Watch the full series on YouTube →', ep1:'Your first module',
+ lgh:'Languages', lg1:'Arabic · native', lg2:'English · limited working proficiency',
  h4:'My tools', l4:'Click any tool.', toolbox:'Pick a tool and I\'ll tell you what I use it for.',
  h5:'You reached the end. Your turn.', l5:'Pick what fits you.',
  p1b:'Looking for an Odoo Developer', p1s:'for your team', p2b:'Want to learn Odoo', p2s:'from scratch, in Arabic',
@@ -885,7 +918,8 @@ function setLang(l){
   window.LANG=l;d.lang=l;d.dir=l==='en'?'ltr':'rtl';document.title=TITLE[l];
   const D=l==='en'?EN:AR;
   document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(k==='toolbox'&&e.dataset.k)return;if(D[k]!=null)e.innerHTML=D[k]});
-  const box=document.getElementById('toolbox');if(box.dataset.k)box.innerHTML='<b>'+box.dataset.k+'</b> — '+(l==='en'?T_EN:T)[box.dataset.k];
+  const box=document.getElementById('toolbox');if(box.dataset.k)box.innerHTML='<b>'+box.dataset.k+'</b> — '+window.tdesc(box.dataset.k);
+  document.querySelectorAll('.tgroup h3').forEach(h=>h.textContent=l==='en'?h.dataset.en:h.dataset.ar);
   const an=document.getElementById('answer');if(an.dataset.p)an.innerHTML=(l==='en'?A_EN:A)[an.dataset.p];
   window.rerenderBuilder&&window.rerenderBuilder();
   document.querySelectorAll('#bar [data-lang]').forEach(b=>{b.classList.toggle('on',b.dataset.lang===l);b.setAttribute('aria-pressed',b.dataset.lang===l)});
